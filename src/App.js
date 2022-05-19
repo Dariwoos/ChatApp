@@ -1,24 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Chat from './component/Chat';
+import SignIn from './component/SignIn';
+import {auth} from './firebase.js'
+import {useAuthState} from 'react-firebase-hooks/auth'
 function App() {
+
+  // useAtuhState ith hook that helps me to authenticat the user if signed in,
+  // then it will gives a lot of data that i can use [name, email, photo ....] otherwise gives me null 
+
+  const [user] = useAuthState(auth)
+  console.log(user)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+   {user ? <Chat/> :  <SignIn/>}
+  
+   
+   </>
   );
 }
 
