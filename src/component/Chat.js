@@ -14,7 +14,8 @@ function Chat() {
   return (
     <div>
         <SignOut></SignOut>
-        {messages.map(({id, text, photoURL})=>{
+      <div className="msgs">
+              {messages.map(({id, text, photoURL})=>{
             console.log(text)
             console.log(messages)
             return(
@@ -24,6 +25,8 @@ function Chat() {
                 </div>
             )
         })}
+      </div>
+
         <SendMessages/>
     </div>
   )
