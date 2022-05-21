@@ -17,11 +17,14 @@ function SendMessages() {
   return (
     <div>
         <form onSubmit={sendMsg}>  
+      <div className="sendMsg">
+      
             <input value={msg} onChange={
                 (e)=> setMsg(e.target.value)
             } placeholder='Message...'/>
             <button type='submit'>Send</button>
         </form>
+</div>
     </div>
   )
 }
